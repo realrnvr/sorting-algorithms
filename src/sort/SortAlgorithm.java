@@ -4,12 +4,12 @@ import java.util.Arrays;
 
 public class SortAlgorithm {
 
-    private final static int[] NUMS = new int[]{-1, -2, 9, 0, -1, 1, 20, 15, 10};
+    private final static int[] NUMS = new int[] { -1, -2, 9, 0, -1, 1, 20, 15, 10 };
 
     public static void resetNums() {
-        int[] temp = new int[]{-1, -2, 9, 0, -1, 1, 20, 15, 10};
+        int[] temp = new int[] { -1, -2, 9, 0, -1, 1, 20, 15, 10 };
 
-        for(int i = 0; i < NUMS.length; ++i) {
+        for (int i = 0; i < NUMS.length; ++i) {
             NUMS[i] = temp[i];
         }
     }
@@ -21,12 +21,12 @@ public class SortAlgorithm {
     /*
      * Bubble sort
      * Time complexity:
-     * Worst/Average: O(n^2)~~
+     * Worst/Average: O(n^2)
      * Best: O(n)
      * Space complexity:
      * O(1)
      * Stable: Yes
-     * */
+     */
     public static void bubbleSort(int[] nums) {
         int n = nums.length;
         boolean isSwap = false;
@@ -41,7 +41,8 @@ public class SortAlgorithm {
                 }
             }
 
-            if (!isSwap) break;
+            if (!isSwap)
+                break;
         }
     }
 
@@ -56,7 +57,7 @@ public class SortAlgorithm {
      * Space Complexity:
      * O(1)
      * Stable: No
-     * */
+     */
     public static void selectionSort(int[] nums) {
         int n = nums.length;
 
@@ -87,7 +88,7 @@ public class SortAlgorithm {
      * Space complexity:
      * O(1)
      * Stable: Yes
-     * */
+     */
     public static void insertionSort(int[] nums) {
         int n = nums.length;
 
@@ -177,7 +178,7 @@ public class SortAlgorithm {
      *
      * Resulting Time Complexity:
      * O(nlog(n))
-     * */
+     */
     public static void mergeSort(int[] nums) {
         divideHelper(nums, 0, nums.length - 1);
     }
@@ -190,16 +191,16 @@ public class SortAlgorithm {
         int i = low, j = high;
         int pivotVal = nums[low];
 
-        while(i < j) {
-            while(i <= high && nums[i] <= pivotVal) {
+        while (i < j) {
+            while (i <= high && nums[i] <= pivotVal) {
                 i++;
             }
 
-            while(j >= low && nums[j] > pivotVal) {
+            while (j >= low && nums[j] > pivotVal) {
                 j--;
             }
 
-            if(i < j) {
+            if (i < j) {
                 int temp = nums[i];
                 nums[i] = nums[j];
                 nums[j] = temp;
@@ -214,7 +215,7 @@ public class SortAlgorithm {
     }
 
     private static void quickHelper(int[] nums, int low, int high) {
-        if(low >= high) {
+        if (low >= high) {
             return;
         }
 
@@ -233,6 +234,7 @@ public class SortAlgorithm {
      * Space Complexity:
      * Best Space Complexity: O(log(n)) [Recursive stack space]
      * Worst Space Complexity: O(n) [Recursive stack space] [Skewed Recursion Tree]
+     * Stable: Yes
      *
      * Best Time Complexity:
      * Pivot will be always dividing the problem into two parts
@@ -260,7 +262,7 @@ public class SortAlgorithm {
      *
      * Resulting Time Complexity:
      * O(n * log(n))
-     * */
+     */
     public static void quickSort(int[] nums) {
         quickHelper(nums, 0, nums.length - 1);
     }
