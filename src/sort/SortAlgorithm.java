@@ -171,7 +171,7 @@ public class SortAlgorithm {
      * => n = 2^i
      * => log(n) = i [base 2]
      *
-     * Substitute knowns in the generalized relation
+     * Substitute known in the generalized relation
      *
      * T(n) = n * 1 + c * n * log(n)
      * => T(n) = c * n * log(n) + n
