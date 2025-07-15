@@ -21,7 +21,7 @@ public class SortAlgorithm {
     /*
      * Bubble sort
      * Time complexity:
-     * Worst/Average: O(n^2)
+     * Worst/Average: O(n^2)~~
      * Best: O(n)
      * Space complexity:
      * O(1)
