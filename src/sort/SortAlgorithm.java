@@ -166,7 +166,7 @@ public class SortAlgorithm {
      * For some i:
      * T(n) = (2^i) * T(n / (2^i)) + c * i * n
      *
-     * This recursion will terminate i.e., n will become one
+     * This series will terminate i.e., n will become one
      * => n / (2^i) = 1
      * => n = 2^i
      * => log(n) = i [base 2]
