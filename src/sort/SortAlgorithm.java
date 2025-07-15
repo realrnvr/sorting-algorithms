@@ -163,7 +163,7 @@ public class SortAlgorithm {
      * From repeated substitution:
      * n -> n / 2 then n / 2 -> n / 4 ...
      *
-     * For some recursion, say i
+     * For some i:
      * T(n) = (2^i) * T(n / (2^i)) + c * i * n
      *
      * This recursion will terminate i.e., n will become one
