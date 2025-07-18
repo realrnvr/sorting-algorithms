@@ -270,4 +270,65 @@ public class SortAlgorithm {
     public static void quickSort() {
         quickSort(NUMS);
     }
+
+    private static void heapify(int[] nums, int n, int i) {
+        int largest = i;
+
+        int leftChild = 2 * i + 1;
+        int rightChild = 2 * i + 2;
+
+        if(leftChild < n && nums[leftChild] > nums[largest]) {
+            largest = leftChild;
+        }
+
+        if(rightChild < n && nums[rightChild] > nums[largest]) {
+            largest = rightChild;
+        }
+
+        if(largest != i) {
+            int temp = nums[largest];
+            nums[largest] = nums[i];
+            nums[i] = temp;
+
+            heapify(nums, n, largest);
+        }
+    }
+
+    private static void buildHeap(int[] nums) {
+        int n = nums.length;
+
+        for(int i = n / 2 - 1; i >= 0; --i) {
+            heapify(nums, n, i);
+        }
+    }
+
+    /*
+     * Heap sort:
+     * Time Complexity:
+     * O(n * log(n))
+     * Space Complexity:
+     * O(1) [Iterative implementation of heapify]
+     * O(log(n)) [Recursive implementation of heapify]
+     * Stable: No
+     *
+     * Considered less efficient in comparison to Merge sort and Quick sort
+     * As Heap sort involves number of swaps and comparisons
+     * */
+    public static void heapSort(int[] nums) {
+        int n = nums.length;
+
+        buildHeap(nums);
+
+        for(int i = n - 1; i >= 0; --i) {
+            int temp = nums[0];
+            nums[0] = nums[i];
+            nums[i] = temp;
+
+            heapify(nums, i, 0);
+        }
+    }
+
+    public static void heapSort() {
+        heapSort(NUMS);
+    }
 }

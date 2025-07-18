@@ -24,6 +24,10 @@ public class Main {
         System.out.println("Quick Sort: " + numsToString());
         resetNums();
 
+        heapSort();
+        System.out.println("Heap Sort: " + numsToString());
+        resetNums();
+
         System.out.println("Unsorted Array: " + numsToString());
     }
 }
