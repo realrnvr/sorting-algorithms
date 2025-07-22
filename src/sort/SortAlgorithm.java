@@ -3,9 +3,11 @@ package sort;
 import java.util.Arrays;
 
 public class SortAlgorithm {
-
     private final static int[] NUMS = new int[] { -1, -2, 9, 0, -1, 1, 20, 15, 10 };
 
+    /*
+    * Reset number array
+    * */
     public static void resetNums() {
         int[] temp = new int[] { -1, -2, 9, 0, -1, 1, 20, 15, 10 };
 
@@ -14,6 +16,9 @@ public class SortAlgorithm {
         }
     }
 
+    /*
+    * Stringify number array into String
+    * */
     public static String numsToString() {
         return Arrays.toString(NUMS);
     }
@@ -29,9 +34,10 @@ public class SortAlgorithm {
      */
     public static void bubbleSort(int[] nums) {
         int n = nums.length;
-        boolean isSwap = false;
 
-        for (int i = n - 1; i > 0; --i) {
+        for (int i = n - 1; i >= 0; --i) {
+            boolean isSwap = false;
+
             for (int j = 0; j < i; ++j) {
                 if (nums[j] > nums[j + 1]) {
                     isSwap = true;
@@ -62,17 +68,18 @@ public class SortAlgorithm {
         int n = nums.length;
 
         for (int i = 0; i < n; ++i) {
-            int minEl = nums[i], minElIdx = i;
+            int minIdx = i;
             for (int j = i + 1; j < n; ++j) {
-                if (minEl > nums[j]) {
-                    minEl = nums[j];
-                    minElIdx = j;
+                if (nums[minIdx] > nums[j]) {
+                    minIdx = j;
                 }
             }
 
-            int temp = nums[i];
-            nums[i] = nums[minElIdx];
-            nums[minElIdx] = temp;
+            if(minIdx != i) {
+                int temp = nums[i];
+                nums[i] = nums[minIdx];
+                nums[minIdx] = temp;
+            }
         }
     }
 
@@ -234,10 +241,10 @@ public class SortAlgorithm {
      * Space Complexity:
      * Best Space Complexity: O(log(n)) [Recursive stack space]
      * Worst Space Complexity: O(n) [Recursive stack space] [Skewed Recursion Tree]
-     * Stable: Yes
+     * Stable: No
      *
      * Best Time Complexity:
-     * Pivot will be always dividing the problem into two parts
+     * Pivot will always be dividing the problem into two parts
      *
      * Recurrence Relationship will be:
      * T(n) = Θ(1) ; n = 1
@@ -246,7 +253,7 @@ public class SortAlgorithm {
      * => T(n) = (2^i) * T(n / (2^i)) + c * i * n
      *
      * Worst Time Complexity:
-     * When Array is Sorted resulting no division into sub problems
+     * When Array is Sorted resulting in single division
      *
      * Recurrence Relationship will be:
      * T(n) = T(n - 1) + Θ(n)
