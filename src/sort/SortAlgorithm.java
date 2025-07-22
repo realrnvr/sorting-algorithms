@@ -17,7 +17,7 @@ public class SortAlgorithm {
     }
 
     /*
-    * Stringify number array into String
+    * Stringify number array
     * */
     public static String numsToString() {
         return Arrays.toString(NUMS);
